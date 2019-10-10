@@ -1,0 +1,25 @@
+.homepage{
+  background-color: #211a21;
+  margin-top: -4vh;
+  padding:0.8rem;
+
+}
+
+.containers{
+  text-align: center;
+}
+
+.header{
+  font-size: 1.9rem;
+  text-transform: uppercase;
+  display:inline-block;
+  -webkit-background-clip:text;
+  color:transparent;
+  font-weight: 800;
+  background-image: linear-gradient(to right,#b5b6e4,	#4f43ae);
+
+}
+
+.heading{
+  color:red;
+}

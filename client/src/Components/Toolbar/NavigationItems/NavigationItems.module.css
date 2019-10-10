@@ -1,0 +1,33 @@
+.navitems{
+  list-style-type: none;
+  display:flex;
+  margin-right: 6rem;
+  letter-spacing:1.5px;
+}
+
+.navitem{
+  margin-left: 1.2rem;
+
+
+
+}
+
+.navitem a {
+    color: #f20f12;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    text-transform: uppercase;
+
+}
+
+.navitem a:hover,
+.navitem a:active,
+.navitem a.active {
+
+      border-bottom: 4px solid #fff;
+      padding: 5px;
+      color: white;
+
+}
