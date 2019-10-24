@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import styles from './Toolbar.module.css';
 import Logo from './Logo/Logo';
 import {withRouter} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import * as actions from  '../../store/actions'
 import NavigationItems from './NavigationItems/NavigationItems';
 
@@ -42,7 +43,12 @@ handlekeyup=(e)=>{
             <input onChange={this.changeHandler}type="text" value={this.state.search} onKeyUp={this.handlekeyup} />
             <span></span>
           </div>
-          <div><p>sign in</p></div>
+          <div>
+          <ul className={styles.navitems}>
+              <li className={styles.navitem}> <NavLink to="/Login" exact>Log In</NavLink></li>
+              <li className={styles.navitem}> <NavLink to="/orders">Sign Up</NavLink></li>
+          </ul>
+          </div>
         <div className={styles.container}>
           <button>Sign up to play today</button>
         </div>
