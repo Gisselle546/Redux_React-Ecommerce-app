@@ -45,8 +45,8 @@ handlekeyup=(e)=>{
           </div>
           <div>
           <ul className={styles.navitems}>
-              <li className={styles.navitem}> <NavLink to="/Login" exact>Log In</NavLink></li>
-              <li className={styles.navitem}> <NavLink to="/orders">Sign Up</NavLink></li>
+              <li className={styles.navitem}> <NavLink to="/login" exact>Log In</NavLink></li>
+              <li className={styles.navitem}> <NavLink to="/signup">Sign Up</NavLink></li>
           </ul>
           </div>
         <div className={styles.container}>
