@@ -1,0 +1,49 @@
+.cards{
+    margin-left: 0.4rem;
+    padding:1.3rem;
+    grid-gap:6px;
+    transition: transform .2s;
+    background-color: #f2e9d3;
+    display:inline-block;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+   -moz-box-shadow:    3px 3px 5px 6px #ccc;
+    box-shadow:         3px 3px 5px 6px #ccc;
+}
+
+.cards h4{
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.cards p{
+  text-align: center;
+  text-transform: capitalize;
+
+}
+
+.cards button{
+  width:100%;
+  background-color: #008CBA;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  color: #edebe6;
+}
+
+.cards button:hover{
+  background-color: white;
+  color: black;
+  border: 2px solid #008CBA;
+}
+
+
+
+.card{
+ height: 350px;
+ width: 240px;
+ overflow: hidden;
+}
+.card img{
+  height: auto;
+  width: 240px;
+}

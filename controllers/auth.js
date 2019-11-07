@@ -18,7 +18,11 @@ exports.signup = async(req,res)=>{
     const moduser = new User(req.body);
     await moduser.save();
     const token = signintoken(moduser);
+    
+
     res.status(200).json({token});
+
+
 
   }catch(err){
     res.status(422).send(err)

@@ -15,7 +15,9 @@ import * as serviceWorker from './serviceWorker';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(reducers,{},composeEnhancers(
+const store = createStore(reducers,{
+  auth:{ authenticated:localStorage.getItem('token')}
+},composeEnhancers(
     applyMiddleware(thunk)));
 
 

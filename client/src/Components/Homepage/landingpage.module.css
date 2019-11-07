@@ -1,0 +1,61 @@
+.landingPage{
+  background-image: linear-gradient(to right, rgba(110, 41, 150,0.2), rgba(55, 39, 64,0.4)), url(../../assets/images/landingpage.jpg);
+  height:100vh;
+  background-size: cover;
+  background-position: left bottom;
+}
+
+.buttonlanding{
+  position:absolute;
+  top:55%;
+  left:42%;
+}
+
+.buttonlanding button{
+  text-decoration:none;
+  color:#fff;
+  font-family:Arial;
+	font-size:17px;
+	padding:9px 48px;
+  background-color: #03001a;
+  cursor:pointer;
+  transition: all .2s;
+  position:relative;
+  outline:0;
+  border:none;
+}
+
+.buttonlanding button::after{
+  content:"";
+  display:inline-block;
+  height:100%;
+  width: 100%;
+  position:absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .2s;
+  background-color: #fff;
+
+}
+
+
+
+
+.buttonlanding button:hover{
+  background-color: #0000;
+  position:relative;
+  transform:translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.buttonlanding button:hover::after{
+  transform:scaleX(1.2) scaleY(1.3);
+  opacity:0;
+}
+
+.buttonlanding button:active{
+  transform:translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  outline:none;
+}

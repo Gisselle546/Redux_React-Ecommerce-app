@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Homepage.module.css';
 import Card from './card';
+import LandingPage from './landingpage';
 import doomimage from '../../assets/images/doomesdefault.jpg';
 import snesghost from '../../assets/images/img1_SGNG.png';
 import metalgear from '../../assets/images/metalgearIMG2.jpg';
@@ -10,6 +11,10 @@ import Footer from './footer';
 
 
 const homepage = (props)=>(
+  <div className={styles.landingpage}>
+      <LandingPage/>
+
+    <div>
       <div className={styles.hompage}>
       <div className={styles.homepage_2}>
         <div className={styles.containers}>
@@ -43,6 +48,7 @@ const homepage = (props)=>(
           </div>
 
         </div>
+
 
 <div className={styles.cards_container}>
     <h2 className={styles.header}>Choose your plan</h2>
@@ -84,8 +90,8 @@ const homepage = (props)=>(
     </div>
 <Footer/>
 </div>
-
-
+</div>
+</div>
 
 )
 

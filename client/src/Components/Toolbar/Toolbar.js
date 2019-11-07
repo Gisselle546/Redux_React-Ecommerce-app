@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import {connect} from 'react-redux';
 import styles from './Toolbar.module.css';
 import Logo from './Logo/Logo';
@@ -28,30 +29,37 @@ handlekeyup=(e)=>{
      }
  }
 
+ // componentDidMount(){
+ //   this.props.signout()
+ //
+ // }
+
+
 
       render(){
         return(
-    <header className={styles.toolbar}>
+    <header className={styles.toolbar} >
+      <Logo/>
+      <nav className={styles.navitem}>
+        <NavigationItems/>
+      </nav>
+      <div>
 
-      <div className={styles.logo}>
-        <Logo/>
       </div>
-          <nav>
-            <NavigationItems />
-          </nav>
-          <div className={styles.searchbar}>
-            <input onChange={this.changeHandler}type="text" value={this.state.search} onKeyUp={this.handlekeyup} />
-            <span></span>
-          </div>
-          <div>
-          <ul className={styles.navitems}>
-              <li className={styles.navitem}> <NavLink to="/login" exact>Log In</NavLink></li>
-              <li className={styles.navitem}> <NavLink to="/signup">Sign Up</NavLink></li>
-          </ul>
-          </div>
-        <div className={styles.container}>
-          <button>Sign up to play today</button>
-        </div>
+      <div className={styles.search}>
+          <input type="text"/>
+            <button className={styles.button}>
+              <FontAwesomeIcon icon={faSearch} />
+            </button>
+      </div>
+      <div className={styles.rightcontainer}>
+        <ul className={ styles.navitems}>
+              
+            <li className={ styles.navitema}> <NavLink to="/signup" >Sign Up</NavLink></li>
+            <li className={ styles.navitema}> <NavLink to="/login">Log In</NavLink></li>
+            <li className={ styles.navitema}> <NavLink to="/signout" onClick={()=>this.props.signout()}> Sign Out </NavLink></li>
+        </ul>
+      </div>
     </header>
 
   )
@@ -60,7 +68,9 @@ handlekeyup=(e)=>{
 
 const mapDispatchToProps = dispatch => {
     return {
-onInitSearch: (hi) => dispatch(actions.fetchinput(hi)),
+   onInitSearch: (hi) => dispatch(actions.fetchinput(hi)),
+   signout: ()=>dispatch(actions.signout())
+
 };
 }
 

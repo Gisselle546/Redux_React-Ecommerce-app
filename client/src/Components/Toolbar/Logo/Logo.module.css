@@ -1,9 +1,10 @@
-.Logo{
-  height:100%;
 
+
+.Logo img:hover{
+  cursor: pointer;
 }
 
 .Logo img{
-  height:16%;
+  height:50%;
   margin-top: 0.5rem;
 }

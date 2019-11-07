@@ -1,0 +1,56 @@
+.signup{
+  background-color: #c4b4b3;
+  height:87vh;
+  width:100%;
+}
+
+.form{
+  position: absolute;
+  top:26%;
+  left:32%;
+  background-color: #5c84e0;
+  height:445px;
+  padding:100px;
+}
+
+.email input{
+  height:100%;
+  text-align: left;
+  width:65%;
+  border: black;
+  margin-left: 37px;
+}
+
+.password input{
+  height:100%;
+  text-align: center;
+  width:65%;
+  margin-left: 9px;
+  border: black;
+}
+
+.username input{
+  height:100%;
+  text-align: center;
+  width:65%;
+  margin-left: 2px;
+  border: black;
+}
+
+.emapass{
+  padding:30px;
+}
+
+.button{
+  background-color: #fff;
+  outline: 0;
+  padding:10px;
+  width: 100%;
+  border-radius: 50px;
+  position:relative;
+  border: none;
+  text-decoration: none;
+  font-size: 18px;
+  margin-top: 1.6rem;
+
+}
