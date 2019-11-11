@@ -8,7 +8,7 @@ router.route('/signup')
       .post(validate(schemas.authSchema),authController.signup);
 
 router.route('/login')
-      .post(authController.authRoutes,authController.login);
+      .post(authController.login);
 
 router.route('/forgotpassword')
       .post(authController.forgotpassword);

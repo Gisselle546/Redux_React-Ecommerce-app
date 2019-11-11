@@ -1,33 +1,22 @@
 import React, {Component} from 'react';
 import {Form, Field} from 'react-final-form';
-import styles from './signup.module.css';
+import styles from './signin.module.css';
 import {connect} from 'react-redux';
 import * as actions from '../../store/actions';
 
-class Signup extends Component{
-
+class Signin extends Component{
   render(){
-
     const onSubmit = formProps=>{
+      this.props.onSubmit(formProps);
+    }
+    const {handleSubmit}= this.props;
+    console.log(this.props)
 
-      this.props.onSubmit(formProps)
-
-
-
-
-    };
-
-      const {handleSubmit} = this.props;
-      
     return(
-        <div className={styles.signup}>
+        <div className={styles.signin}>
         <Form onSubmit={onSubmit}  render={({ handleSubmit }) => (
           <form onSubmit={handleSubmit} className={styles.form}>
               <div className={styles.emapass}>
-                    <div className={styles.username}>
-                        <label>Username: </label>
-                        <Field name="username" type="text" component="input" />
-                      </div>
                   <div className={styles.email}>
                       <label>Email: </label>
                       <Field name="email" type="text" component="input" />
@@ -37,7 +26,7 @@ class Signup extends Component{
                       <Field name="password" type="password" component="input"/>
                   </div>
         </div>
-          <button className={styles.button}>Sign Up</button>
+          <button className={styles.button}>Sign in</button>
         </form>
     )}
    />
@@ -46,9 +35,13 @@ class Signup extends Component{
   }
 }
 
-const mapDispatchToProps = (dispatch,ownProps) => {
-  return {
-    onSubmit: (formProps) => dispatch(actions.postDATA(formProps,ownProps))
+const mapDispatchToProps =(dispatch,ownProps)=>{
+  return{
+    onSubmit: (formProps)=> dispatch(actions.signDate(formProps,ownProps))
   }
 }
-export default connect(null,mapDispatchToProps)(Signup);
+
+
+
+
+export default connect(null,mapDispatchToProps)(Signin);

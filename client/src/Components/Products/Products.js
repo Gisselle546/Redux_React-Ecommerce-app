@@ -3,7 +3,6 @@ import _ from 'lodash';
 import {connect} from 'react-redux';
 import * as actions from  '../../store/actions';
 import Product from './Product';
-import Filter from './filter';
 import styles from './Products.module.css';
 
 class Products extends Component{

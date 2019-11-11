@@ -36,14 +36,15 @@ const userSchema = new Schema({
 userSchema.pre('save',async function(next){
     try{
         const user = this;
-          if(user.isModified('password')){
+          if(!user.isModified('password')||!user.isNew) return next();
 
           const salt = await bcrypt.genSalt(12);
           const hash = await bcrypt.hash(user.password,salt);
           user.password = hash;
           this.passwordChangedAt = Date.now() - 1000;
-        next();
-      }
+
+
+
     }catch(e){
         next(e);
     }
@@ -53,15 +54,20 @@ userSchema.statics.comparepasswords = async function(email,password){
 
     try {
       const user = await User.findOne({email});
+      console.log(user.password);
+      console.log(password);
       if(!user){
-        throw new Error(error);
+         throw new Error('This user doesnt exist, sign up now! ');
       }
       const isMatch = await bcrypt.compare(password,user.password);
+        console.log(isMatch);
       if (!isMatch){
-        throw new Error('password is incorrect')
+        throw new Error('password is incorrect');
       }
-      console.log(isMatch);
-      return user;
+
+
+
+      return isMatch;
 
   }catch(e){
     return e;

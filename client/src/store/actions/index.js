@@ -15,5 +15,8 @@ export{
   postDATA,
   authSignupfailure,
   signout,
-  
+  authSigninsuccess,
+  signDate,
+  authSigninfailure
+
 } from './auth';

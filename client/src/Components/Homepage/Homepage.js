@@ -10,6 +10,8 @@ import premiumimage from '../../assets/images/premiumimage.jpg';
 import Footer from './footer';
 
 
+
+
 const homepage = (props)=>(
   <div className={styles.landingpage}>
       <LandingPage/>

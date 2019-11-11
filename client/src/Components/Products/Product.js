@@ -5,7 +5,7 @@ const product = (props)=>(
 <div className={styles.cards}>
     <h4>{props.game.title}</h4>
   <div className ={styles.card}>
-      <img src={props.game.image}/>
+      <img src={props.game.image} alt="game"/>
 
   </div>
       <p> Digital: <strong>${props.game.price}</strong></p>

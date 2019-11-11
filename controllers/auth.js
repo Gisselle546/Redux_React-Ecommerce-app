@@ -18,7 +18,7 @@ exports.signup = async(req,res)=>{
     const moduser = new User(req.body);
     await moduser.save();
     const token = signintoken(moduser);
-    
+
 
     res.status(200).json({token});
 
@@ -33,10 +33,14 @@ exports.login = async(req,res)=>{
   try {
 
         const user = await User.comparepasswords(req.body.email,req.body.password)
+        if(!user){
+          console.log('Incorrect email or password');
+        }
+      
         const token = signintoken(user);
         res.status(200).json({token})
    } catch (error) {
-       res.status(500).json()
+       res.status(500).json(error)
    }
  }
 

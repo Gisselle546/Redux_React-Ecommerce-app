@@ -11,13 +11,17 @@ import NavigationItems from './NavigationItems/NavigationItems';
 
 class toolbar extends Component{
 
-    state={
-      search:''
-    }
+state={
+  show:false
+}
+
 
     changeHandler=(e)=>{
  this.setState({search:e.target.value});
 }
+
+
+
 
 handlekeyup=(e)=>{
 
@@ -29,14 +33,26 @@ handlekeyup=(e)=>{
      }
  }
 
- // componentDidMount(){
- //   this.props.signout()
- //
- // }
+signedin=()=>{
+  if (!this.props.auth){
+    return[
+      console.log(this.props.auth),
+    <li className={ styles.navitema}> <NavLink to="/signup" >Sign Up</NavLink></li>,
+    <li className={ styles.navitema}> <NavLink to="/login">Log In</NavLink></li>,
+    ];
+  }else{
+    return[
 
+  <li className={ styles.navitema}> <NavLink to="/" onClick={()=>this.props.signout()}> Sign Out </NavLink></li>,
+
+    ];
+
+  }
+}
 
 
       render(){
+
         return(
     <header className={styles.toolbar} >
       <Logo/>
@@ -53,11 +69,11 @@ handlekeyup=(e)=>{
             </button>
       </div>
       <div className={styles.rightcontainer}>
+
         <ul className={ styles.navitems}>
-              
-            <li className={ styles.navitema}> <NavLink to="/signup" >Sign Up</NavLink></li>
-            <li className={ styles.navitema}> <NavLink to="/login">Log In</NavLink></li>
-            <li className={ styles.navitema}> <NavLink to="/signout" onClick={()=>this.props.signout()}> Sign Out </NavLink></li>
+          {this.signedin()}
+
+
         </ul>
       </div>
     </header>
@@ -66,13 +82,20 @@ handlekeyup=(e)=>{
 }
 }
 
+const mapStateToProps=state=>{
+  return {
+    auth:state.auth.authenticated
+  }
+}
+
 const mapDispatchToProps = dispatch => {
     return {
    onInitSearch: (hi) => dispatch(actions.fetchinput(hi)),
-   signout: ()=>dispatch(actions.signout())
+   signout: ()=>dispatch(actions.signout()),
+
 
 };
 }
 
 
-export default withRouter(connect(null,mapDispatchToProps)(toolbar));
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(toolbar));

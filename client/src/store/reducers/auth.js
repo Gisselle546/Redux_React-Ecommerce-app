@@ -11,6 +11,11 @@ export default function(state=initialstate,action){
       ...state,
       authenticated:action.payload
     };
+    case actionTypes.AUTH_SIGNIN_SUCCESS:
+    return{
+      ...state,
+      authenticated:action.payload
+    };
     default:
   return state
   }

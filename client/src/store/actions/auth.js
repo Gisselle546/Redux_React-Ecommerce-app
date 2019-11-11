@@ -43,3 +43,30 @@ export const signout = ()=>{
     payload:''
   }
 }
+
+export const authSigninsuccess = formProps=>{
+  return {
+    type: actionTypes.AUTH_SIGNIN_SUCCESS,
+    payload:{formProps}
+  }
+}
+export const authSigninfailure= error=>{
+  return{
+    type:actionTypes.AUTH_SIGNIN_FAILURE,
+    payload:error
+  }
+}
+
+export const signDate =(formProps,ownProps)=>{
+  return dispatch=>{
+    axios.post(`api/auth/login`,formProps)
+    .then(response=>{
+      dispatch(authSigninsuccess(response.data.token))
+      localStorage.setItem('token',response.data.token)
+      ownProps.history.push('/games');
+    })
+    .catch(error=>{
+      dispatch(authSigninfailure(error))
+    });
+  }
+}
