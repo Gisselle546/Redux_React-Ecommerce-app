@@ -19,9 +19,12 @@ app.use(function(req, res, next) {
 
 const auth = require('./routes/auth');
 const game = require('./routes/product');
+const cart = require('./routes/cart');
 
 app.use('/api/auth',auth);
 app.use('/api/game',game);
+app.use('/api/cart',cart);
+
 
 mongoose.connect(process.env.DATABASE, {
     useNewUrlParser: true,

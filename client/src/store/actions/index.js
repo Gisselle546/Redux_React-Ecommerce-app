@@ -7,7 +7,9 @@ export{
 
 export{
   getproducts,
-  fetchproducts
+  fetchproducts,
+  getProduct,
+  fetchproduct
 } from './products';
 
 export{

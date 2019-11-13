@@ -1,7 +1,8 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialstate={
-  products:{}
+  products:{},
+  product:{}
 }
 
 
@@ -10,9 +11,15 @@ export default function(state=initialstate, action){
     case actionTypes.GET_PRODUCTS_SUCCESS:
       return{
         ...state,
-        products:action.payload,
+        products:action.payload
 
       };
+      case actionTypes.GET_PRODUCT_SUCCESS:
+      return{
+        ...state,
+        product:action.payload
+      };
+
       default:
     return state
   }

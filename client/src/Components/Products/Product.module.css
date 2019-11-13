@@ -1,7 +1,7 @@
 .cards{
-    margin-left: 0.4rem;
-    padding:1.3rem;
-    grid-gap:6px;
+    cursor: pointer;
+    margin:1rem;
+    position: relative;
     transition: transform .2s;
     background-color: #f2e9d3;
     display:inline-block;
@@ -10,9 +10,10 @@
     box-shadow:         3px 3px 5px 6px #ccc;
 }
 
-.cards h4{
-  text-align: center;
-  text-transform: capitalize;
+.cards a{
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
 }
 
 .cards p{
@@ -28,6 +29,7 @@
   padding: 1rem 2rem;
   font-size: 1.1rem;
   color: #edebe6;
+
 }
 
 .cards button:hover{
@@ -42,8 +44,13 @@
  height: 350px;
  width: 240px;
  overflow: hidden;
+
+
 }
 .card img{
   height: auto;
-  width: 240px;
+  width: 200px;
+  position:absolute;
+  top:20%;
+  left:18%
 }

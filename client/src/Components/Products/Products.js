@@ -16,7 +16,7 @@ state={
     this.props.onInitProducts()
 
   }
-
+  
   showMenu=(event)=>{
     event.preventDefault();
     this.setState({
@@ -51,7 +51,7 @@ closeMenu=()=>{
     const products = _.mapKeys(this.props.products,'_id');
 
         return _.map(products, post=>{
-             return <Product key={post._id} game={post} />
+             return <Product key={post._id} game={post}  />
           })
 
   }
@@ -60,8 +60,9 @@ closeMenu=()=>{
     if(!this.props.products){
       return <div>Loading...</div>;
     }
-
+      console.log(this.props);
     return(
+
       <div className={styles.productContainer}>
             <div className={styles.categoryContainer}>
             <button className={styles.sortbybutton}onClick={this.showMenu}>
@@ -100,7 +101,8 @@ const mapStateToProps = state =>{
 
 const mapDispatchToProps = dispatch =>{
   return{
-    onInitProducts: ()=> dispatch(actions.fetchproducts())
+    onInitProducts: ()=> dispatch(actions.fetchproducts()),
+
   };
 }
 

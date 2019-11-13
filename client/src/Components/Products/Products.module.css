@@ -1,35 +1,12 @@
-
 .productContainer{
-  display:flex;
-  padding:1rem;
+  margin:1rem;
+
 
 }
-
-.categoryContainer{
-  width:100%;
-}
-
 .container{
   display:grid;
-  grid-template-columns: auto auto auto;
-  grid-gap: 5px;
-}
-
-.sortbybutton{
-  border:none;
-  background-color: blue;
-  padding:1.2rem;
-}
-
-.sortbybutton:focus{
-  border: none;
-  outline: none;
-}
-
-
-
-.menu button{
-  display: block;
-  width:85%;
-  background-color: blue;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 50% 50%;
+  margin-top: 1rem;
+  align-items: start;
 }

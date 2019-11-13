@@ -2,6 +2,9 @@ const express = require('express');
 const router  = express.Router();
 
 const ProductController = require('../controllers/product');
+const requirelogin = require('../controllers/auth')
+
+
 
 router.route('/')
       .get(ProductController.getProducts)

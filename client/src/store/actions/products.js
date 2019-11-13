@@ -23,6 +23,8 @@ export const getproductsfailure = error=>{
   }
 }
 
+
+
 export const fetchproducts=()=>{
   return dispatch=>{
     axios.get(`api/game`)
@@ -32,5 +34,30 @@ export const fetchproducts=()=>{
     .catch(error=>{
       dispatch(getproductsfailure(error))
     });
+  }
+}
+
+export const getProduct = id =>{
+  return{
+      type:actionTypes.GET_PRODUCT_SUCCESS,
+      payload:{id}
+  }
+}
+export const getProductfailure = error =>{
+  return{
+      type:actionTypes.GET_PRODUCT_FAILURE,
+      payload:error
+  }
+}
+
+export const fetchproduct=(id)=>{
+  return dispatch =>{
+    axios.get(`api/game/${id}`)
+          .then(response=>{
+            dispatch(getProduct(response.data))
+          })
+          .catch(error=>{
+            dispatch(getProductfailure(error))
+          })
   }
 }

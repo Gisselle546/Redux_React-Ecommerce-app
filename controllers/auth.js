@@ -5,7 +5,7 @@ const emailSender = require('../config/sendgrid');
 const crypto = require ('crypto');
 
 signintoken = user =>{
-  return JWT.sign({id:user.id},process.env.JWT_SECRET,{expiresIn:process.env.JWT_EXPIRESIN});
+  return JWT.sign({id:user._id},process.env.JWT_SECRET,{expiresIn:process.env.JWT_EXPIRESIN});
 }
 
 exports.signup = async(req,res)=>{
@@ -36,7 +36,7 @@ exports.login = async(req,res)=>{
         if(!user){
           console.log('Incorrect email or password');
         }
-      
+
         const token = signintoken(user);
         res.status(200).json({token})
    } catch (error) {
@@ -54,12 +54,12 @@ exports.authRoutes = async(req,res,next)=>{
 
 
      const decoded = await promisify(JWT.verify)(token,process.env.JWT_SECRET);
+     console.log(decoded);
+     const user = await User.findById(decoded.id)
 
-     const user = await User.findById(decoded.id )
       if(user.changedPasswordfuture(decoded.iat)){
-        return next(
-          new AppError('Password change, log in again',401)
-        );
+        throw new Error('Password change, log in again',401);
+        return next()
       }
 
       req.user = user;
