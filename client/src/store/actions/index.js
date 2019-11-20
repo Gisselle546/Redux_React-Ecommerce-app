@@ -22,3 +22,15 @@ export{
   authSigninfailure
 
 } from './auth';
+
+export{
+  addCart,
+  addcartfail,
+  sendtocart,
+  getCart,
+  cartFailure,
+  getCartItems,
+  deleteItem,
+  deleteItemFailure,
+  fetchitemfordeletion
+} from './cart';

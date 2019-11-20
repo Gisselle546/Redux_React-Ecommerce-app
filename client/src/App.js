@@ -6,6 +6,7 @@ import Homepage from './Components/Homepage/Homepage';
 import ProductShow from './Components/Products/ProductShow';
 import Signup from './Components/Auth/signup';
 import Signin from './Components/Auth/signin';
+import Cart from './Components/Cart/cart';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
 
         <Route path="/signup" component={Signup}/>
         <Route path="/login" component={Signin}/>
+        <Route path='/cart' component={Cart}/>
           </Switch>
       </Layout>
     </div>

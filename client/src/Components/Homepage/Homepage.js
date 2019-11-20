@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Component} from 'react';
 import styles from './Homepage.module.css';
 import Card from './card';
 import LandingPage from './landingpage';
@@ -12,7 +12,11 @@ import Footer from './footer';
 
 
 
-const homepage = (props)=>(
+class Homepage extends Component{
+
+  render(){
+      {console.log(this.props)}
+    return(
   <div className={styles.landingpage}>
       <LandingPage/>
 
@@ -94,7 +98,8 @@ const homepage = (props)=>(
 </div>
 </div>
 </div>
-
 )
+}
+}
 
-export default homepage;
+export default Homepage;

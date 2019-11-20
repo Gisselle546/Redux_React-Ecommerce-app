@@ -25,6 +25,7 @@ export const postDATA = (formProps,ownProps)=>{
            console.log(response.data);
           dispatch(authSignupsuccess(response.data.token))
           localStorage.setItem('token',response.data.token)
+
           ownProps.history.push(`/games`);
 
          })
@@ -63,6 +64,7 @@ export const signDate =(formProps,ownProps)=>{
     .then(response=>{
       dispatch(authSigninsuccess(response.data.token))
       localStorage.setItem('token',response.data.token)
+
       ownProps.history.push('/games');
     })
     .catch(error=>{

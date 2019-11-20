@@ -7,7 +7,7 @@ const requirelogin = require('../controllers/auth')
 
 
 router.route('/')
-      .get(ProductController.getProducts)
+      .get(requirelogin.authRoutes,ProductController.getProducts)
       .post(ProductController.createProduct);
 
 router.route('/search')

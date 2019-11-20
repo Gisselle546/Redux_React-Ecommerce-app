@@ -1,0 +1,25 @@
+
+.cartitem{
+  margin-top:1rem;
+  display: flex;
+
+}
+
+.item{
+  height: 350px;
+  width: 240px;
+  overflow: hidden;
+
+}
+.item img{
+  height: auto;
+  width: 200px;
+  position:absolute;
+
+}
+
+.shoppingcarttitle{
+  font-family: "Ubuntu";
+  font-weight: 700;
+  font-size: 21px;
+}

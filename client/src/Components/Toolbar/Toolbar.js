@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faSearch,faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import {connect} from 'react-redux';
 import styles from './Toolbar.module.css';
 import Logo from './Logo/Logo';
@@ -39,11 +39,13 @@ signedin=()=>{
       console.log(this.props.auth),
     <li className={ styles.navitema}> <NavLink to="/signup" >Sign Up</NavLink></li>,
     <li className={ styles.navitema}> <NavLink to="/login">Log In</NavLink></li>,
+    <li className={ styles.navitemab}> <NavLink to="/cart" ><FontAwesomeIcon icon={faShoppingCart}/></NavLink></li>
     ];
   }else{
     return[
 
   <li className={ styles.navitema}> <NavLink to="/" onClick={()=>this.props.signout()}> Sign Out </NavLink></li>,
+  <li className={ styles.navitemab}> <NavLink to="/cart" ><FontAwesomeIcon icon={faShoppingCart}/></NavLink></li>,
 
     ];
 

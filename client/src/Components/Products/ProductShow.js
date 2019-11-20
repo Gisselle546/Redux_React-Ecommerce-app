@@ -9,7 +9,15 @@ class ProductShow extends Component{
   componentDidMount(){
       const {id} = this.props.match.params;
         this.props.onInitproduct(id);
-        console.log(this.props)
+
+    }
+
+
+
+    fifa=()=>{
+          const{product} = this.props;
+          
+      this.props.onSendCart(product);
     }
 
   render(){
@@ -27,7 +35,7 @@ class ProductShow extends Component{
             <h2>{this.props.product.title}</h2>
             <h3> ${this.props.product.price}</h3>
             <p>{this.props.product.productdescription}</p>
-            <button className={styles.button}> Add to Cart </button>
+            <button className={styles.button} onClick={this.fifa}> Add to Cart </button>
           </div>
       </div>
     )
@@ -36,13 +44,16 @@ class ProductShow extends Component{
 
 const mapStateToProps = (state) => {
     return {
-        product:state.products.product.id
+        product:state.products.product.id,
+
+
     };
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
 onInitproduct: (id) => dispatch(actions.fetchproduct(id)),
+onSendCart: (id) => dispatch(actions.sendtocart(id))
 };
 }
 
