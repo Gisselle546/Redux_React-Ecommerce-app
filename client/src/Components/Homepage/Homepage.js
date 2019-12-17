@@ -12,11 +12,7 @@ import Footer from './footer';
 
 
 
-class Homepage extends Component{
-
-  render(){
-      {console.log(this.props)}
-    return(
+const homepage = (props)=>(
   <div className={styles.landingpage}>
       <LandingPage/>
 
@@ -56,50 +52,12 @@ class Homepage extends Component{
         </div>
 
 
-<div className={styles.cards_container}>
-    <h2 className={styles.header}>Choose your plan</h2>
-        <div class="container">
-          <div class="row">
-              <div class="col-sm">
-                  <div className={styles.card}>
-                    <Card image ={imagebasic} title="Basic" price="3.99"/>
-                      <ul className={styles.listitem}>
 
-                        <li><p>Play a always evolving collection of games</p></li>
-                        <li><p>Play on the go </p></li>
-                    </ul>
-                    <button type="button" class="btn btn-primary">Basic</button>
-                  </div>
-
-              </div>
-
-              <div class="col-sm">
-              <div className={styles.card}>
-                <Card image ={premiumimage} title="Premium" price="6.99"/>
-                <ul className={styles.listitem}>
-
-                  <li><p>Play a always evolving collection of games</p></li>
-                  <li><p>Play on the go </p></li>
-                  <li><p>Download while you play</p></li>
-                  <li><p>Current gen &amp; retro games playable anytime!</p></li>
-
-              </ul>
-                <button className={styles.button1}type="button" class="btn btn-primary">Premium</button>
-              </div>
-
-             </div>
-
-         </div>
-
-
-      </div>
-    </div>
 <Footer/>
 </div>
 </div>
 </div>
-)
-}
-}
 
-export default Homepage;
+)
+
+export default homepage;

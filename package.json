@@ -12,9 +12,9 @@
   "author": "Gisselle Rodriguez",
   "license": "ISC",
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.25",
-    "@fortawesome/free-solid-svg-icons": "^5.11.2",
-    "@fortawesome/react-fontawesome": "^0.1.7",
+    "@fortawesome/fontawesome-svg-core": "^1.2.26",
+    "@fortawesome/free-solid-svg-icons": "^5.12.0",
+    "@fortawesome/react-fontawesome": "^0.1.8",
     "@hapi/joi": "^15.1.1",
     "@sendgrid/mail": "^6.4.0",
     "bcryptjs": "^2.4.3",
@@ -24,10 +24,11 @@
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
-    "mongoose": "^5.7.8",
+    "mongoose": "^5.8.1",
     "morgan": "^1.9.1",
-    "nodemailer": "^6.3.1",
-    "nodemon": "^1.19.4"
+    "nodemailer": "^6.4.2",
+    "nodemon": "^1.19.4",
+    "react-stripe-checkout": "^2.6.3"
   },
   "devDependencies": {
     "concurrently": "^4.1.2"

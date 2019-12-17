@@ -30,7 +30,11 @@ const userSchema = new Schema({
       default:Date.now()
     },
     resetToken:String,
-    resetExpireTime:Date
+    resetExpireTime:Date,
+
+  
+
+
 });
 
 userSchema.pre('save',async function(next){

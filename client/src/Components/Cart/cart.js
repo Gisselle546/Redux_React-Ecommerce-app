@@ -1,11 +1,13 @@
 import React,{Component} from 'react';
 import CartItems from './CartItems';
+import StripeCheckout from "react-stripe-checkout";
 import {connect} from 'react-redux';
 import * as actions from  '../../store/actions';
 import styles from './cart.module.css';
 
 class Cart extends Component{
 
+  
 componentDidMount(){
   this.props.onGetCart()
 }
@@ -19,6 +21,14 @@ return cartItem;
 }
 
 
+getPrice=()=>{
+  var total = 0;
+  this.props.cart.cart.map(item=>{
+    total += item.items.price
+  });
+  return total
+}
+
 
 
   render(){
@@ -26,11 +36,23 @@ return cartItem;
       return <div>Loading!!</div>
     }
 
+
+
+
     return(
         <div className={styles.shopping_Cart}>
             <h3 className={styles.cart_title}>Shopping Cart</h3>
 
-            {this.renderhost()}
+                {this.renderhost()}
+
+
+            <div className={styles.checkout}>
+              <h2>Total:${this.getPrice()}</h2>
+              <button>CheckOut</button>
+
+            </div>
+
+
 
         </div>
     )

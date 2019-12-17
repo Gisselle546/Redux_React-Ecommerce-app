@@ -52,8 +52,19 @@ signedin=()=>{
   }
 }
 
+conditional=()=>{
+  if(!this.props.cart){
+       return <p className={styles.num}>0</p>;
+     }else{
+       return <p className={styles.num}>{this.props.cart.cart.length}</p>
+      }
+  }
+
+
 
       render(){
+
+
 
         return(
     <header className={styles.toolbar} >
@@ -74,9 +85,10 @@ signedin=()=>{
 
         <ul className={ styles.navitems}>
           {this.signedin()}
-
-
+          {this.conditional()}
         </ul>
+
+
       </div>
     </header>
 
@@ -86,7 +98,8 @@ signedin=()=>{
 
 const mapStateToProps=state=>{
   return {
-    auth:state.auth.authenticated
+    auth:state.auth.authenticated,
+    cart: state.cart.cart.cart
   }
 }
 
