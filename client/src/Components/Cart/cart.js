@@ -4,19 +4,33 @@ import StripeCheckout from "react-stripe-checkout";
 import {connect} from 'react-redux';
 import * as actions from  '../../store/actions';
 import styles from './cart.module.css';
+import Checkout from './checkout';
+import _ from 'lodash';
 
 class Cart extends Component{
 
-  
+
+
+
 componentDidMount(){
   this.props.onGetCart()
+
 }
+
+componentDidUpdate(prevProps) {
+  if (!_.isEqual( this.props.cart , prevProps.cart )) {
+    this.props.onGetCart()
+  }
+}
+
 
 renderhost=()=>{
     const {cart}=this.props;
-    const cartItem = cart.cart.map((cartitem)=>{
+
+    const cartItem = cart.cart.map((cartitem,i)=>{
       return <CartItems key={cartitem._id} cart={cartitem} clicked={()=>this.props.onDeleteItem(cartitem._id)}/>;
   });
+
 return cartItem;
 }
 
@@ -41,18 +55,25 @@ getPrice=()=>{
 
     return(
         <div className={styles.shopping_Cart}>
-            <h3 className={styles.cart_title}>Shopping Cart</h3>
+            <div className={styles.cartItems}>
+                  <h3 className={styles.cart_title}>Shopping Cart</h3>
 
-                {this.renderhost()}
+                      {this.renderhost()}
 
 
-            <div className={styles.checkout}>
-              <h2>Total:${this.getPrice()}</h2>
-              <button>CheckOut</button>
 
             </div>
 
 
+            <div className={styles.checkout}>
+              <p className={styles.title}>Summary</p>
+
+              <p className={styles.total}>total  ${this.getPrice()}</p>
+              <Checkout classname={styles.button}amount={this.getPrice()}/>
+
+            </div>
+
+{console.log(this.props.cart)}
 
         </div>
     )

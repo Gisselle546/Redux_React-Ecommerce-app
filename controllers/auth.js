@@ -4,9 +4,9 @@ const User = require('../models/user');
 const emailSender = require('../config/sendgrid');
 const crypto = require ('crypto');
 
-signintoken = user =>{
+const signintoken = user =>{
   console.log(user);
-  return JWT.sign({id:user._id},process.env.JWT_SECRET,{expiresIn:process.env.JWT_EXPIRESIN});
+  return JWT.sign({id: user._id},process.env.JWT_SECRET,{expiresIn:process.env.JWT_EXPIRESIN});
 }
 
 exports.signup = async(req,res)=>{
@@ -17,6 +17,7 @@ exports.signup = async(req,res)=>{
       return res.status(500).json({error:'email in use'});
     }
     const moduser = new User(req.body);
+    console.log(moduser)
     await moduser.save();
     const token = signintoken(moduser);
 
@@ -34,6 +35,7 @@ exports.login = async(req,res)=>{
   try {
 
         const user = await User.comparepasswords(req.body.email,req.body.password)
+        
 
         if(!user){
           console.log('Incorrect email or password');
@@ -58,9 +60,10 @@ exports.authRoutes = async(req,res,next)=>{
        return next(new Error('no Token'))
 
      }
+
      const decoded = await promisify(JWT.verify)(token,process.env.JWT_SECRET);
-      console.log(decoded);
-     const user = await User.findById(decoded.id)
+
+      const user = await User.findById(decoded.id)
       if(!user){
         throw new Error('Please log in',401)
       }

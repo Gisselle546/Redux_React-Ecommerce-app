@@ -1,11 +1,49 @@
+
 .shopping_Cart{
-  margin:1rem;
-}
-
-.checkout{
+  margin:0.7rem;
+  background-color: #a4d3ff;
   display:flex;
+  justify-content: space-between;
+}
+
+.title{
+  font-size: 1.6rem;
+  color:#fff;
+  text-transform: uppercase;
 
 }
+
+.cart_title{
+
+  padding:1.0rem;
+  margin:1.0rem;
+  background: #111111;
+  color:#fff;
+
+}
+
+.total{
+  color:#fff;
+  text-transform: capitalize;
+  font-size:1.1rem;
+}
+
+.button{
+  margin:1rem;
+
+}
+
+  .checkout{
+    background:black;
+    margin:1rem;
+    padding:2rem;
+    width:24%;
+    height:60%;
+  }
+
+  .checkout h2 {
+    color:#fff;
+  }
  .checkout button{
    margin-left: 40px;
    color:#fff;

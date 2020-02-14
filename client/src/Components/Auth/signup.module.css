@@ -23,7 +23,7 @@
 
 .password input{
   height:100%;
-  text-align: center;
+  text-align: left;
   width:65%;
   margin-left: 9px;
   border: black;
@@ -31,7 +31,7 @@
 
 .username input{
   height:100%;
-  text-align: center;
+  text-align: left;
   width:65%;
   margin-left: 2px;
   border: black;

@@ -16,7 +16,7 @@ class ProductShow extends Component{
 
     fifa=()=>{
           const{product} = this.props;
-          
+
       this.props.onSendCart(product);
     }
 
@@ -25,8 +25,9 @@ class ProductShow extends Component{
      return <div>Loading!!!</div>;
    }
 
-  console.log(this.props)
+
     return(
+    <div>
       <div className={styles.container}>
           <div className={styles.imagecontainer}>
             <img src={this.props.product.image}/>
@@ -34,10 +35,17 @@ class ProductShow extends Component{
           <div className = {styles.productContainer}>
             <h2>{this.props.product.title}</h2>
             <h3> ${this.props.product.price}</h3>
-            <p>{this.props.product.productdescription}</p>
             <button className={styles.button} onClick={this.fifa}> Add to Cart </button>
+
           </div>
       </div>
+      <div className={styles.descriptionContainer}>
+        <h2 className={styles.title}>Description</h2>
+        <p className={styles.description}>{this.props.product.productdescription}</p>
+      </div>
+    </div>
+
+
     )
   }
 }

@@ -57,9 +57,10 @@ exports.getCart = async(req,res,next)=>{
 
 exports.deleteCartItem = async(req,res,next)=>{
   try{
+
       const cart = await Cart.findByIdAndRemove(req.params.id)
 
-      res.status(200).json({message:'Deleted'})
+      res.status(200).json({cart})
   }catch(error){
     res.status(500).json(error)
   }

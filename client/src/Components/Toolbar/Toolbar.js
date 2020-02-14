@@ -12,7 +12,8 @@ import NavigationItems from './NavigationItems/NavigationItems';
 class toolbar extends Component{
 
 state={
-  show:false
+  show:false,
+  search:''
 }
 
 
@@ -20,6 +21,9 @@ state={
  this.setState({search:e.target.value});
 }
 
+componentDidMount(){
+  this.conditional()
+}
 
 
 
@@ -28,7 +32,7 @@ handlekeyup=(e)=>{
 
    if (e.key === 'Enter' && this.state.search !== '') {
        this.props.onInitSearch(this.state.search)
-       this.props.history.push(`api/game/search?results=${this.state.search}`)
+       this.props.history.push(`/search`)
         this.setState({search:''});
      }
  }
@@ -53,8 +57,8 @@ signedin=()=>{
 }
 
 conditional=()=>{
-  if(!this.props.cart){
-       return <p className={styles.num}>0</p>;
+  if(!this.props.cart || this.props.cart.cart.length===0){
+       return <p className={styles.num}></p>;
      }else{
        return <p className={styles.num}>{this.props.cart.cart.length}</p>
       }
@@ -63,7 +67,7 @@ conditional=()=>{
 
 
       render(){
-
+        console.log(this.state.search)
 
 
         return(
@@ -75,8 +79,8 @@ conditional=()=>{
       <div>
 
       </div>
-      <div className={styles.search}>
-          <input type="text"/>
+      <div className={styles.search} >
+          <input type="text" onChange={this.changeHandler} onKeyUp={this.handlekeyup} placeholder='Search...'/>
             <button className={styles.button}>
               <FontAwesomeIcon icon={faSearch} />
             </button>

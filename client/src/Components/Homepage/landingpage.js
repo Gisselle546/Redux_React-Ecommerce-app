@@ -1,16 +1,18 @@
 import React,{Component} from 'react';
-import {Link} from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 import styles from './landingpage.module.css';
 
 
 
 class Landingpage extends Component{
 
+
+
   renderhost=()=>{
       if(localStorage.getItem('token')==null){
-        return   <button>Sign up to play today</button>
+        return <button onClick={()=>this.props.history.push('/signup')}>Sign up to play today</button>
       }
-        return <button>Continue your game</button>
+        return <button onClick={()=>this.props.history.push('/games')}>Continue your game</button>
     }
 
   render(){
@@ -26,4 +28,4 @@ class Landingpage extends Component{
   }
 }
 
-export default Landingpage;
+export default withRouter(Landingpage);

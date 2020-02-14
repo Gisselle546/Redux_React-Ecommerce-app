@@ -16,7 +16,7 @@ state={
     this.props.onInitProducts()
 
   }
-  
+
   showMenu=(event)=>{
     event.preventDefault();
     this.setState({
@@ -57,10 +57,15 @@ closeMenu=()=>{
   }
 
   render(){
+
+    if( localStorage.getItem('token')===null){
+      this.props.history.push('/login');
+    }
+
     if(!this.props.products){
       return <div>Loading...</div>;
     }
-      console.log(this.props);
+
     return(
 
       <div className={styles.productContainer}>

@@ -32,7 +32,7 @@ const userSchema = new Schema({
     resetToken:String,
     resetExpireTime:Date,
 
-  
+
 
 
 });
@@ -71,7 +71,7 @@ userSchema.statics.comparepasswords = async function(email,password){
 
 
 
-      return isMatch;
+      return user;
 
   }catch(e){
     return e;

@@ -94,10 +94,10 @@ input {
 
 
 .num{
-  color:red;
+  color:#fff;
   position:absolute;
-  top:3%;
-  right:1.9%;
+  top:3.3%;
+  right:0.4%;
   height:40px;
   text-transform: full-width;
 }

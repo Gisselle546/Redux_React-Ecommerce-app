@@ -7,6 +7,7 @@ import ProductShow from './Components/Products/ProductShow';
 import Signup from './Components/Auth/signup';
 import Signin from './Components/Auth/signin';
 import Cart from './Components/Cart/cart';
+import Search from './Components/Search/Search';
 
 function App() {
   return (
@@ -14,8 +15,10 @@ function App() {
       <Layout>
           <Switch>
         <Route exact path="/" component={Homepage} />
+        <Route path="/search" component={Search}/>
         <Route path="/games/:id" component={ProductShow}/>
         <Route path="/games" component={Products}/>
+
 
         <Route path="/signup" component={Signup}/>
         <Route path="/login" component={Signin}/>

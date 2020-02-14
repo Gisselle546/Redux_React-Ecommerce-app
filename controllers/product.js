@@ -63,3 +63,5 @@ exports.replaceProduct = async(req,res) =>{
   }
 
 }
+
+module.exports = exports;
