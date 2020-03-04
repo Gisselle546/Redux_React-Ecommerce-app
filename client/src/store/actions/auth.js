@@ -20,6 +20,7 @@ export const authSignupfailure = (error)=>{
 
 export const postDATA = (formProps,ownProps)=>{
   return dispatch=>{
+
     axios.post(`api/auth/signup`,formProps)
          .then(response=>{
            console.log(response.data);

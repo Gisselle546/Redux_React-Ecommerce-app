@@ -24,6 +24,7 @@ export const searchfailure= error=>{
 
 export const fetchinput=(q)=>{
   return dispatch=>{
+      dispatch(searchbegin())
     axios.get(`api/game/search?results=${q}`)
          .then(response=>{
            dispatch(searchinput(response.data))

@@ -8,6 +8,8 @@ export const addCart=(id)=>{
   }
 }
 
+
+
 export const addcartfail=(error)=>{
   return{
     type:actionTypes.ADD_CART_FAIL,

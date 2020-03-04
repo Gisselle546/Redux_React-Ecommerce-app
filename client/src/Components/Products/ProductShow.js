@@ -18,6 +18,7 @@ class ProductShow extends Component{
           const{product} = this.props;
 
       this.props.onSendCart(product);
+      this.props.history.push('/cart')
     }
 
   render(){

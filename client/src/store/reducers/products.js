@@ -2,16 +2,28 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialstate={
   products:{},
-  product:{}
+  product:{},
+  loading:false
 }
 
 
 export default function(state=initialstate, action){
   switch(action.type){
+
+    case actionTypes.GET_PRODUCTS_BEGIN:
+      return{
+        ...state,
+        loading:true,
+        products:action.payload
+
+      };
+
+
     case actionTypes.GET_PRODUCTS_SUCCESS:
       return{
         ...state,
-        products:action.payload
+        loading:false,
+        products:action.payload,
 
       };
       case actionTypes.GET_PRODUCT_SUCCESS:

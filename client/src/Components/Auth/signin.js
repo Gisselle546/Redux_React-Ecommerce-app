@@ -9,8 +9,14 @@ class Signin extends Component{
     const onSubmit = formProps=>{
       this.props.onSubmit(formProps);
     }
+
+    const required = value => (value ? undefined : "Required");
+    const email = value=>(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)? undefined :'Enter a email address!');
+    const composeValidators = (...validators) => value =>
+      validators.reduce((error, validator) => error || validator(value), undefined);
+
     const {handleSubmit}= this.props;
-    console.log(this.props)
+
 
     return(
         <div className={styles.signin}>
@@ -18,12 +24,24 @@ class Signin extends Component{
           <form onSubmit={handleSubmit} className={styles.form}>
               <div className={styles.emapass}>
                   <div className={styles.email}>
-                      <label>Email: </label>
-                      <Field name="email" type="text" component="input" />
+                      <Field name="email" validate={composeValidators(required, email)}>
+                      {({ input, meta }) => (
+                        <div>
+                          <label>Email: </label>
+                          <input {...input} type="text" />{meta.error && meta.touched && <span className={styles.error}>{meta.error}</span>}
+                        </div>
+                      )}
+                        </Field>
                     </div>
                  <div className={styles.password}>
-                      <label>Password: </label>
-                      <Field name="password" type="password" component="input"/>
+                      <Field name="password" validate={required}>
+                      {({ input, meta }) => (
+                        <div>
+                            <label>Password: </label>
+                          <input {...input} type="password"/>{meta.error && meta.touched && <span className={styles.error}>{meta.error}</span>}
+                        </div>
+                      )}
+                        </Field>
                   </div>
         </div>
           <button className={styles.button}>Sign in</button>

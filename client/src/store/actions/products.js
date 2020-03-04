@@ -27,6 +27,7 @@ export const getproductsfailure = error=>{
 
 export const fetchproducts=()=>{
   return dispatch=>{
+    dispatch(getproductsbegin())
     axios.get(`api/game`)
     .then(response=>{
       dispatch(getproducts(response.data))

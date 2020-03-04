@@ -48,6 +48,7 @@
 
 }
 .card img{
+  max-height: 240px;
   height: auto;
   width: 200px;
   position:absolute;

@@ -54,3 +54,10 @@
   margin-top: 1.6rem;
 
 }
+
+.error{
+  color:red;
+  font-weight: bold;
+  position:absolute;
+  margin-left: 15px;
+}

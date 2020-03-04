@@ -6,35 +6,66 @@ import * as actions from '../../store/actions';
 
 class Signup extends Component{
 
+
+
   render(){
 
     const onSubmit = formProps=>{
 
       this.props.onSubmit(formProps)
 
-
-
-
     };
 
+    const required = value => (value ? undefined : "Required");
+    const email = value=>(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)? undefined :'Enter a email address!');
+    const composeValidators = (...validators) => value =>
+      validators.reduce((error, validator) => error || validator(value), undefined);
+
+
+
+
       const {handleSubmit} = this.props;
-      
+
     return(
         <div className={styles.signup}>
         <Form onSubmit={onSubmit}  render={({ handleSubmit }) => (
           <form onSubmit={handleSubmit} className={styles.form}>
               <div className={styles.emapass}>
                     <div className={styles.username}>
-                        <label>Username: </label>
-                        <Field name="username" type="text" component="input" />
+                        <Field name="username" validate={required}>
+                        {({ input, meta }) => (
+                          <div>
+                            <label>Username: </label>
+
+                            <input {...input} type="text" />{meta.error && meta.touched && <span className={styles.error}>{meta.error}</span>}
+                          </div>
+                        )}
+                          </Field>
                       </div>
+
                   <div className={styles.email}>
-                      <label>Email: </label>
-                      <Field name="email" type="text" component="input" />
+                      <Field name="email" validate={composeValidators(required, email)}>
+                      {({ input, meta }) => (
+                        <div>
+                          <label>Email: </label>
+                          <input {...input} type="text" />{meta.error && meta.touched && <span className={styles.error}>{meta.error}</span>}
+                        </div>
+                      )}
+                        </Field>
+
+
+
                     </div>
                  <div className={styles.password}>
-                      <label>Password: </label>
-                      <Field name="password" type="password" component="input"/>
+
+                      <Field name="password" validate={required}>
+                      {({ input, meta }) => (
+                        <div>
+                            <label>Password: </label>
+                          <input {...input} type="password"/>{meta.error && meta.touched && <span className={styles.error}>{meta.error}</span>}
+                        </div>
+                      )}
+                        </Field>
                   </div>
         </div>
           <button className={styles.button}>Sign Up</button>
@@ -46,9 +77,15 @@ class Signup extends Component{
   }
 }
 
+
+
 const mapDispatchToProps = (dispatch,ownProps) => {
   return {
-    onSubmit: (formProps) => dispatch(actions.postDATA(formProps,ownProps))
+    onSubmit: (formProps) => dispatch(actions.postDATA(formProps,ownProps)),
+
   }
 }
+
+
+
 export default connect(null,mapDispatchToProps)(Signup);
