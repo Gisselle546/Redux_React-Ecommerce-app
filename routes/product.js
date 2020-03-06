@@ -4,7 +4,7 @@ const router  = express.Router();
 const ProductController = require('../controllers/product');
 const requirelogin = require('../controllers/auth')
 
-//requirelogin.authRoutes
+
 
 router.route('/')
       .get(requirelogin.authRoutes,ProductController.getProducts)

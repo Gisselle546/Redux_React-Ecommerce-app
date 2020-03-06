@@ -35,7 +35,7 @@ exports.login = async(req,res)=>{
   try {
 
         const user = await User.comparepasswords(req.body.email,req.body.password)
-        
+
 
         if(!user){
           console.log('Incorrect email or password');
@@ -60,6 +60,10 @@ exports.authRoutes = async(req,res,next)=>{
        return next(new Error('no Token'))
 
      }
+
+
+
+
 
      const decoded = await promisify(JWT.verify)(token,process.env.JWT_SECRET);
 
@@ -157,6 +161,7 @@ exports.resetPassword =async (req,res,next)=>{
 
 
 }
+
 
 
 

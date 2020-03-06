@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import jwt from 'jwt-decode';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -15,10 +16,20 @@ import * as serviceWorker from './serviceWorker';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+
+const checktokenexpiration = store => next =>action=>{
+  const token = localStorage.getItem('token')
+    if(jwt(token).exp<Date.now()/1000){
+      next(action)
+      localStorage.clear();
+    }
+    next(action);
+}
+
 const store = createStore(reducers,{
   auth:{ authenticated:localStorage.getItem('token')}
 },composeEnhancers(
-    applyMiddleware(thunk)));
+    applyMiddleware(thunk,checktokenexpiration)));
 
 
 const app = (

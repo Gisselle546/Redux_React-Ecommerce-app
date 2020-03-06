@@ -34,7 +34,7 @@ const homepage = (props)=>(
                     <h3 className={styles.heading}>Time to finally beat Contra&trade;!!!</h3>
                     <p className={styles.text}> Avoid having to start over after losing a game with the save before losing point, beat all the difficult games
                     that you couldn't finish before</p>
-                    <button onClick={()=>props.history.push('/games')}className={styles.learnButton}>Start Today &#8594; </button>
+                    <button onClick={()=>props.history.push('/signup')}className={styles.learnButton}>Start Today &#8594; </button>
                   </div>
 
                   <div class="col">
